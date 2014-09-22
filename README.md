@@ -1,6 +1,6 @@
-# drGrove's .vim setup (Based off lrvick's .vim)#
+# byronmansfield's .vim setup (Based off of drGrove's .vim) #
 
-<http://github.com/drGrove/dotvim>
+<http://github.com/byronmansfield/dotvim>
 
 
 ## About ##
@@ -17,7 +17,6 @@ setup, is the only IDE I use. (Yes, I just called Vim an IDE. Deal.)
   * Command-T - fuzzy searching to quickly switch files [Meta-T]
   * Conque-Shell - built in terminals [F3] & [F4]
   * Gundo - undo history management [F5]
-  * Tagbar - easily browse through a programs structure [F9]
   * Supertab - tab-complete anything you have used in the curent buffer
   * Fugitive - built in Git management
   * Syntastic - syntax checking and correction helpers for most major languages
@@ -30,7 +29,7 @@ setup, is the only IDE I use. (Yes, I just called Vim an IDE. Deal.)
 1. Clone .vim directory
 
     ```bash
-    git clone https://github.com/drGrove/dotvim.git ~/.vim
+    git clone https://github.com/byronmansfield/dotvim.git ~/.vim
     ```
 2. Install submodules
 
