@@ -23,6 +23,7 @@ setup, is the only IDE I use. (Yes, I just called Vim an IDE. Deal.)
   * Vim-Indent-Guides - easily see indentions. Customized to match Solarized
   * Pathogen - for easily managing plugins as git submodules
   * Other various helper plugins to aid programming as I find them useful
+  * NerdCommenter - Adds support for comment toggle in JavaScript
 
 ## Usage / Installation ##
 
@@ -48,4 +49,9 @@ setup, is the only IDE I use. (Yes, I just called Vim an IDE. Deal.)
 ## Notes ##
 
   Use at your own risk. You may be eaten by a grue.
+
+## Wishlist ##
+
+  * I would still like to get Tab Bar working properly for JavaScript
+  * I would like to map keys to switch vim tabs quickly similar to switching tabs in browsers
 
