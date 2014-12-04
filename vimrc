@@ -5,17 +5,18 @@ call pathogen#infect()
 "Basic goodness
 syntax on
 filetype plugin indent on
+filetype plugin on
 set number
 set cursorline
 set autoindent smartindent
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set noexpandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set textwidth=79
 set colorcolumn=79
 set spell spelllang=en_us
-set foldmethod=marker
+set foldmethod=indent
 set t_Co=256
 set term=xterm-256color
 
@@ -33,6 +34,11 @@ set mouse=a
 
 "Remove Mouse Scroll Wheel Click PASTE
 noremap <MiddleMouse> <LeftMouse>
+
+" Folding
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
 
 "FuzzyFinder
 map <silent> <C-t> :FufCoverageFile<CR>
@@ -100,13 +106,18 @@ hi IndentGuidesEven ctermbg=233
 " Omni Complete
 set omnifunc=syntaxcomplete#Complete
 
-"Gundo
+" Gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
 
-"Nerdtree
-map <silent> <F2> :NERDTreeToggle<CR>
+" Nerdtree
+map <C-n> :NERDTreeToggle<CR>
 
-"Tagbar
+" Nerd Commenter
+" map :NERDComToggleComment
+" imap :NERDComToggleComment
+map <C-/> :NERDComToggleComment<CR>
+
+" Tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
 "Status line of awesome
