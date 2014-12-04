@@ -8,14 +8,13 @@ filetype plugin indent on
 set number
 set cursorline
 set autoindent smartindent
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set noexpandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set textwidth=79
 set colorcolumn=79
 set spell spelllang=en_us
-set foldmethod=marker
 set t_Co=256
 set term=xterm-256color
 
@@ -33,6 +32,12 @@ set mouse=a
 
 "Remove Mouse Scroll Wheel Click PASTE
 noremap <MiddleMouse> <LeftMouse>
+
+" Folding Settings
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
 
 "FuzzyFinder
 map <silent> <C-t> :FufCoverageFile<CR>
@@ -104,7 +109,8 @@ set omnifunc=syntaxcomplete#Complete
 nnoremap <silent> <F5> :GundoToggle<CR>
 
 "Nerdtree
-map <silent> <F2> :NERDTreeToggle<CR>
+" map <silent> <F2> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 "Tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
