@@ -1,8 +1,8 @@
-"Load Pathogen and all bundles
+" Load Pathogen and all bundles
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-"Basic goodness
+" Basic goodness
 syntax on
 filetype plugin indent on
 set number
@@ -27,10 +27,23 @@ nmap <Down> ]e
 vmap <Up> [egv
 vmap <Down> ]egv
 
-"Enable mouse for selecting/changing windows etc.
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+	" Use Ag over Grep
+	set grepprg=ag\ --nogroup
+	let g:grep_cmd_opts = '--line-numbers --noheading'
+
+	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+	let g:ctrlp_user_command = 'ag %s -l -g ""'
+
+	" ag is fast enough that CtrlP doesn't need to cache
+	let g:ctrlp_use_caching = 0
+endif'
+
+" Enable mouse for selecting/changing windows etc.
 set mouse=a
 
-"Remove Mouse Scroll Wheel Click PASTE
+" Remove Mouse Scroll Wheel Click PASTE
 noremap <MiddleMouse> <LeftMouse>
 
 " Folding Settings
@@ -39,21 +52,21 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
-"FuzzyFinder
+" FuzzyFinder
 map <silent> <C-t> :FufCoverageFile<CR>
 let g:fuf_file_exclude='\v\~$|\.(o|exe|dll|bak|orig|sw[po])$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
-"Highlight end of line whitespace.
-"set list
+" Highlight end of line whitespace.
+" set list
 set listchars=trail:.
 
-"Syntastic syntax error checking options
+" Syntastic syntax error checking options
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_jsl_conf="~/.vim/config/jsl.conf"
 
-"Solarized color scheme
+" Solarized color scheme
 set background=dark
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
@@ -62,10 +75,10 @@ let g:solarized_visibility="high"
 colorscheme solarized
 call togglebg#map("<F6>")
 
-"javascript libraries
+" javascript libraries
 let g:used_javascript_libs = 'jquery,angularjs,requirejs,underscore'
 
-"rainbow parentheses
+" rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -88,13 +101,13 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
-"Persistanb undo
+" Persistanb undo
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000
 set undoreload=10000
 
-"Custom indent-guides config
+" Custom indent-guides config
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
@@ -105,17 +118,17 @@ hi IndentGuidesEven ctermbg=233
 " Omni Complete
 set omnifunc=syntaxcomplete#Complete
 
-"Gundo
+" Gundo
 nnoremap <silent> <F5> :GundoToggle<CR>
 
-"Nerdtree
+" Nerdtree
 " map <silent> <F2> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
-"Tagbar
+" Tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
-"Status line of awesome
+" Status line of awesome
 hi User1 ctermbg=237 ctermfg=248
 hi User2 ctermbg=red   ctermfg=blue
 hi User3 ctermbg=blue  ctermfg=green
@@ -139,6 +152,8 @@ set statusline+=%=      " left/right seperator
 set statusline+=[%c,    " cursor column
 set statusline+=%l/%L   " cursor line/total lines
 set statusline+=\ %P]   " percent through file"
+
+" Function to calculate File Size
 function! FileSize()
   let bytes = getfsize(expand("%:p"))
   if bytes <= 0
@@ -151,7 +166,7 @@ function! FileSize()
   endif
 endfunction
 
-"Vim Snippets
+" Vim Snippets
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-1.9'
@@ -160,3 +175,4 @@ let g:snipMate.scope_aliases['javascript'] = 'javascript, javascript.d3, javascr
 let g:snipMate.scope_aliases['vim'] = 'vim'
 let g:snipMate.scope_aliases['sh'] = 'sh'
 let g:snipMate.scope_aliases['css'] = 'css'
+
