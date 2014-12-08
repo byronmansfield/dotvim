@@ -66,20 +66,8 @@ let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_jsl_conf="~/.vim/config/jsl.conf"
 
-" Custom colors
-
-" Line numbers
-highlight SignColumn ctermbg=grey ctermfg=black
-" Other things to adjust
-" # Javascript Specific
-" * comment color selectors
-" * annoying background highlighting
-" * figure out tool to help me know what the vim selectors are
-" * once I figure those out, revisit the older themes
-" * not color related but fix my back button issue
-
-" My custom colorization to work with XXX color scheme
-" Stay tuned, soon to be added
+" Color Line numbers
+" highlight SignColumn ctermbg=grey ctermfg=black
 
 " Solarized color scheme
 set background=dark
