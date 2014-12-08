@@ -9,6 +9,7 @@ set number
 set cursorline
 set autoindent smartindent
 set noexpandtab
+set backspace=2
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
