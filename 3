@@ -16,7 +16,9 @@ set textwidth=79
 set colorcolumn=79
 set spell spelllang=en_us
 set term=xterm-256color
-set t_Co=256
+if $TERM == "xterm-256color"
+	set t_Co=256
+endif
 
 nmap <Left> <<
 nmap <Right> >>
@@ -67,19 +69,8 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_jsl_conf="~/.vim/config/jsl.conf"
 
 " Custom colors
-
 " Line numbers
 highlight SignColumn ctermbg=grey ctermfg=black
-" Other things to adjust
-" # Javascript Specific
-" * comment color selectors
-" * annoying background highlighting
-" * figure out tool to help me know what the vim selectors are
-" * once I figure those out, revisit the older themes
-" * not color related but fix my back button issue
-
-" My custom colorization to work with XXX color scheme
-" Stay tuned, soon to be added
 
 " Solarized color scheme
 set background=dark
@@ -88,12 +79,7 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 
-" Works the best for right now
 colorscheme solarized
-
-" The following have issues that might be able to be fixed by customizing a few
-" things. Once adjusted maybe they will be better alternatives.
-" Revisit them later
 " colorscheme darkspectrum
 " colorscheme flattown
 " colorscheme monokai
@@ -101,12 +87,6 @@ colorscheme solarized
 " colorscheme darkmate
 " colorscheme gruvbox
 " colorscheme classytouch
-" colorscheme pomelo
-" colorscheme hemisu
-
-" Works the best as a close second alternative if I have no success with
-" correcting the listed once above
-" colorscheme nucolors
 
 call togglebg#map("<F6>")
 
