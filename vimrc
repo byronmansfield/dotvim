@@ -53,6 +53,14 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
+" Mapping for Paste from System Clipboard
+imap <C-v> :call Paste()<CR>
+
+" Function to support the Paste from Clipboard mapping
+function! Paste()
+	exec: ":put +"
+endfunction
+
 " FuzzyFinder
 map <silent> <C-t> :FufCoverageFile<CR>
 let g:fuf_file_exclude='\v\~$|\.(o|exe|dll|bak|orig|sw[po])$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
