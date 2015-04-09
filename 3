@@ -5,20 +5,20 @@ call pathogen#infect()
 " Basic goodness
 syntax on
 filetype plugin indent on
-filetype plugin on
 set number
 set cursorline
 set autoindent smartindent
 set noexpandtab
-set backspace=2
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set textwidth=79
 set colorcolumn=79
 set spell spelllang=en_us
-set t_Co=256
 set term=xterm-256color
+if $TERM == "xterm-256color"
+	set t_Co=256
+endif
 
 nmap <Left> <<
 nmap <Right> >>
@@ -54,14 +54,6 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
-" Mapping for Paste from System Clipboard
-imap <C-v> :call Paste()<CR>
-
-" Function to support the Paste from Clipboard mapping
-function! Paste()
-	exec: ":put +"
-endfunction
-
 " FuzzyFinder
 map <silent> <C-t> :FufCoverageFile<CR>
 let g:fuf_file_exclude='\v\~$|\.(o|exe|dll|bak|orig|sw[po])$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
@@ -76,8 +68,9 @@ let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_jsl_conf="~/.vim/config/jsl.conf"
 
-" Color Line numbers
-" highlight SignColumn ctermbg=grey ctermfg=black
+" Custom colors
+" Line numbers
+highlight SignColumn ctermbg=grey ctermfg=black
 
 " Solarized color scheme
 set background=dark
@@ -86,12 +79,7 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 
-" Works the best for right now
 colorscheme solarized
-
-" The following have issues that might be able to be fixed by customizing a few
-" things. Once adjusted maybe they will be better alternatives.
-" Revisit them later
 " colorscheme darkspectrum
 " colorscheme flattown
 " colorscheme monokai
@@ -99,12 +87,6 @@ colorscheme solarized
 " colorscheme darkmate
 " colorscheme gruvbox
 " colorscheme classytouch
-" colorscheme pomelo
-" colorscheme hemisu
-
-" Works the best as a close second alternative if I have no success with
-" correcting the listed once above
-" colorscheme nucolors
 
 call togglebg#map("<F6>")
 
@@ -164,12 +146,8 @@ set omnifunc=syntaxcomplete#Complete
 nnoremap <silent> <F5> :GundoToggle<CR>
 
 " Nerdtree
+" map <silent> <F2> :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
-
-" Nerd Commenter
-" map :NERDComToggleComment
-" imap :NERDComToggleComment
-map <C-/> :NERDComToggleComment<CR>
 
 " Tagbar
 nnoremap <silent> <F9> :TagbarToggle<CR>
