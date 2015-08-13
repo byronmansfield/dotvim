@@ -1,12 +1,6 @@
-[submodule ".vim/bundle/vim-pathogen"]
-	path = bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule ".vim/bundle/delmitmate"]
 	path = bundle/delmitmate
 	url = git://github.com/Raimondi/delimitMate.git
-[submodule ".vim/bundle/closetag"]
-path = bundle/closetag
-	url = git://github.com/docunext/closetag.vim.git
 [submodule ".vim/bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
@@ -16,54 +10,15 @@ path = bundle/closetag
 [submodule ".vim/bundle/vim-indent-guides"]
 	path = bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule ".vim/bundle/gundo"]
-	path = bundle/gundo
-	url = https://github.com/sjl/gundo.vim
 [submodule ".vim/bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/fugitive"]
-	path = bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/tagbar"]
-	path = bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
-[submodule ".vim/bundle/Conque-Shell"]
-	path = bundle/Conque-Shell
-	url = https://github.com/lrvick/Conque-Shell.git
 [submodule ".vim/bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/coffee-script"]
-	path = bundle/coffee-script
-	url = https://github.com/kchmck/vim-coffee-script
-[submodule "bundle/less"]
-	path = bundle/less
-	url = https://github.com/groenewege/vim-less.git
 [submodule "bundle/rainbow_parentheses"]
 	path = bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "bundle/unimpaired"]
-	path = bundle/unimpaired
-	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/jade"]
-	path = bundle/jade
-	url = https://github.com/digitaltoad/vim-jade.git
-[submodule "bundle/stylus"]
-	path = bundle/stylus
-	url = https://github.com/wavded/vim-stylus.git
 [submodule "bundle/editorconfig"]
 	path = bundle/editorconfig
     url = git://github.com/editorconfig/editorconfig-vim.git
-[submodule "bundle/js-libs"]
-	path = bundle/js-libs
-	url = https://github.com/othree/javascript-libraries-syntax.vim.git
-[submodule "bundle/vim-snippets"]
-	path = bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
-[submodule "FuzzyFinder"]
-	path = bundle/FuzzyFinder
-	url = https://github.com/vim-scripts/FuzzyFinder.git
-[submodule "L9"]
-	path = bundle/L9
-	url = https://github.com/vim-scripts/L9.git
