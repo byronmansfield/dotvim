@@ -94,5 +94,5 @@ Use at your own risk. You may be eaten by a grue.
 
 ## Wishlist
 
-[ ] write an installer script to handle some of the secondary installiations
+- [ ] write an installer script to handle some of the secondary installiations
 
