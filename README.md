@@ -4,7 +4,7 @@
 
 This is to help me keep all my computers synced and also to add some history
 tracking in case I need to revert. I am also using this as a way to leave notes
-for myself on setting it up every time I need to set up a new computer, and save
+for myself on setting it up every time I need to set up a new computer, and save myself time from googling around. Take what you like, contribute if you like
 	myself time from googling around. Take what you like, contribute if you like
 	(please send PR's). Right now I'd say that most of this is set up for OS X +
 	iTerm2 with Tmux. I've started using Ubuntu more and have slowly started
@@ -80,13 +80,14 @@ solarized from the cloned iterm-colors repo.
 #### Airline Support
 
 In order to get the full on Airline support on a mac, you'll need to install
-the missing [fonts](https://github.com/powerline/fonts) as well.
+the missing [Menlo Powerline patched
+fonts](https://github.com/abertsch/Menlo-for-Powerline).
 
 ```shell
-git clone https://github.com/powerline/fonts.git
-cd /path/to/fonts
-./install.sh
+git clone https://github.com/abertsch/Menlo-for-Powerline.git
 ```
+* Double click the fonts to install them.
+* Then set iTerm2 to use the Menlo fonts
 
 ## Notes
 
@@ -94,5 +95,5 @@ Use at your own risk. You may be eaten by a grue.
 
 ## Wishlist
 
-- [ ] write an installer script to handle some of the secondary installiations
+- [ ] write an installer script to handle some of the secondary installations 
 
