@@ -1,5 +1,4 @@
 " Load Pathogen and all bundles
-" runtime ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -36,19 +35,6 @@ nmap <Up> [e
 nmap <Down> ]e
 vmap <Up> [egv
 vmap <Down> ]egv
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-	" Use Ag over Grep
-	set grepprg=ag\ --nogroup
-	let g:grep_cmd_opts = '--line-numbers --noheading'
-
-	" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-	let g:ctrlp_user_command = 'ag %s -l -g ""'
-
-	" ag is fast enough that CtrlP doesn't need to cache
-	let g:ctrlp_use_caching = 0
-endif
 
 " Enable mouse for selecting/changing windows etc.
 set mouse=a
@@ -167,11 +153,6 @@ hi IndentGuidesEven ctermbg=236
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
-
-" Nerd Commenter
-" map :NERDComToggleComment
-" imap :NERDComToggleComment
-map <C-/> :NERDComToggleComment<CR>
 
 " Status line of awesome
 " hi User1 ctermbg=237 ctermfg=248
