@@ -58,12 +58,28 @@ full list of vim goodies to work.
 
 #### Install YouCompleteMe
 
-I write Go and also like Typescript (for Angular2) so typically my
-installation looks like this.
+To completely install YouCompleteMe you need to do a few extra steps. I suggest
+using their repo installication instructions in case something has changed.
+Since I'm usually setting this up for myself, and I write C, Go and also some Typescript (for Angular2), my typical installation looks something like this.
+
+Make sure we have CMake installed (preq for C lang support) via Homebrew
+
+```shell
+brew install CMake
+```
+
+Update the submodules
+
+```shell
+git submodule update --init --recursive
+```
+
+Then use their installer script with C and Go flags also making sure we have
+typescript node module installed globally
 
 ```shell
 cd ~/.vim/bundle/YouCompleteMe
-.install.sh --gocode-completer
+./install.py --gocode-completer
 npm install -g typescript
 ```
 
