@@ -24,6 +24,12 @@ set spell spelllang=en_us
 set t_Co=256
 set term=xterm-256color
 
+" ================ Search ===========================
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+
 " hack for multiple pastes
 xnoremap p pgvy
 
@@ -103,6 +109,14 @@ function! <SID>SynStack()
 	endif
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction
+
+" Format JSON
+function! FormatJSON() 
+  :%!python -m json.tool 
+endfunction
+
+" Key map for format function 
+map <C-j> :call FormatJSON()<CR>
 
 " javascript libraries configuration for javascript syntax plugin
 let g:used_javascript_libs = 'jquery,angularjs,angularui,jasmine,underscore'
@@ -195,9 +209,11 @@ endfunction
 """"""""""""""""""""""""""""""
 " airline
 """"""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'solarized'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enable = 1
+let g:airline_detect_paste=1
 
 set laststatus=2
 
@@ -212,12 +228,6 @@ let g:airline_powerline_fonts = 1
 " let g:airline_branch_prefix     = '⭠'
 " let g:airline_readonly_symbol   = '⭤'
 " let g:airline_linecolumn_prefix = '⭡'
-
-" Show PASTE if in paste mode
-let g:airline_detect_paste=1
-
-" Enable vim-airline
-let g:airline#extensions#tabline#enabled = 1
 
 " function! AirlineInit()
 " 	let g:airline_section_a = airline#section#create(['mode',' ','branch'])
@@ -240,3 +250,14 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+" disable JSON concel
+let g:vim_json_syntax_conceal = 0
+
+" highlight whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
