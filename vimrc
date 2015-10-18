@@ -24,6 +24,13 @@ set spell spelllang=en_us
 set t_Co=256
 set term=xterm-256color
 
+" searching
+set showmatch
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
 " hack for multiple pastes
 xnoremap p pgvy
 
