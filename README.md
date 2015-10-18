@@ -4,11 +4,15 @@
 
 This is to help me keep all my computers synced and also to add some history
 tracking in case I need to revert. I am also using this as a way to leave notes
-for myself on setting it up every time I need to set up a new computer, and save myself time from googling around. Take what you like, contribute if you like
-	myself time from googling around. Take what you like, contribute if you like
-	(please send PR's). Right now I'd say that most of this is set up for OS X +
-	iTerm2 with Tmux. I've started using Ubuntu more and have slowly started
-	adding things that make it compatible with both.
+for myself on setting it up every time I need to set up a new computer, and save myself time from googling around. Take what you like, contribute if you like myself time from googling around. Take what you like, contribute if you like (please send PR's). Please see [arch notes](#ARCH) for Mac OSX architecture specific notes.
+
+## ARCH
+
+Right now I have my Mac OSX setup under [Master
+branch](https://github.com/byronmansfield/dotvim/tree/master), and my [Arch Linux](https://github.com/byronmansfield/dotvim/tree/arch)
+setup under the arch branch. I have not been able to get both of the working
+under the same branch that well. I'm still searching for a better way to do
+this. In the mean time they live in separate branches.
 	
 ## Current Feature Highlights
 
@@ -111,5 +115,9 @@ Use at your own risk. You may be eaten by a grue.
 
 ## Wishlist
 
-- [ ] write an installer script to handle some of the secondary installations 
+- [ ] write an installer script to handle some of the secondary installations
+
+## ToDo
+
+- [ ] Update any left over mac instructions to arch specific instructions
 
