@@ -13,10 +13,8 @@ set autoindent smartindent
 " set noexpandtab
 set expandtab
 set backspace=2
-" set tabstop=2
 set tabstop=2
 set softtabstop=2
-" set shiftwidth=2
 set shiftwidth=2
 set textwidth=79
 set colorcolumn=79
@@ -24,7 +22,7 @@ set spell spelllang=en_us
 set t_Co=256
 set term=xterm-256color
 
-" ================ Search ===========================
+" =================== Search ===========================
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
@@ -32,6 +30,15 @@ set smartcase       " ...unless we type a capital
 
 " hack for multiple pastes
 xnoremap p pgvy
+
+" ============== Wrap without line breaks ==============
+set wrap
+set linebreak
+set nolist          " list disables linebreaks
+set textwidth=0     " prevent vim from inserting new line breaks on new text
+set wrapmargin=0    " helps with textwidth
+" set formatoptions-=t " prevent vim auto formating when typing on existing lines
+" set formatoptions+=1 " prevent vim auto formating most of the time but allow some long lines
 
 nmap <Left> <<
 nmap <Right> >>
@@ -257,7 +264,7 @@ let g:vim_json_syntax_conceal = 0
 " highlight whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" autocmd BufWinLeave * call clearmatches()
