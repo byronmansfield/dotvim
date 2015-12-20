@@ -13,10 +13,8 @@ set autoindent smartindent
 " set noexpandtab
 set expandtab
 set backspace=2
-" set tabstop=2
 set tabstop=2
 set softtabstop=2
-" set shiftwidth=2
 set shiftwidth=2
 set textwidth=79
 set colorcolumn=79
@@ -80,25 +78,8 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 
-" Works the best for right now
+" Set Theme
 colorscheme solarized
-
-" The following have issues that might be able to be fixed by customizing a few
-" things. Once adjusted maybe they will be better alternatives.
-" Revisit them later
-" colorscheme darkspectrum
-" colorscheme flattown
-" colorscheme monokai
-" colorscheme mango
-" colorscheme darkmate
-" colorscheme gruvbox
-" colorscheme classytouch
-" colorscheme pomelo
-" colorscheme hemisu
-
-" Works the best as a close second alternative if I have no success with
-" correcting the listed once above
-" colorscheme nucolors
 
 call togglebg#map("<F6>")
 
