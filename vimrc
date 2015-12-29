@@ -22,12 +22,11 @@ set spell spelllang=en_us
 set t_Co=256
 set term=xterm-256color
 
-" searching
-set showmatch
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
+" ================ Search ===========================
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
 
 " hack for multiple pastes
 xnoremap p pgvy
@@ -91,6 +90,14 @@ function! <SID>SynStack()
 	endif
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction
+
+" Format JSON
+function! FormatJSON()
+  :%!python -m json.tool
+endfunction
+
+" Key map for format function
+map <C-j> :call FormatJSON()<CR>
 
 " javascript libraries configuration for javascript syntax plugin
 let g:used_javascript_libs = 'jquery,angularjs,angularui,jasmine,underscore'
@@ -183,9 +190,11 @@ endfunction
 """"""""""""""""""""""""""""""
 " airline
 """"""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'solarized'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enable = 1
+let g:airline_detect_paste=1
 
 set laststatus=2
 
