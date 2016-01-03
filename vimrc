@@ -10,7 +10,6 @@ filetype plugin on
 set number
 set cursorline
 set autoindent smartindent
-" set noexpandtab
 set expandtab
 set backspace=2
 set tabstop=2
@@ -57,7 +56,6 @@ map <silent> <C-t> :FufCoverageFile<CR>
 let g:fuf_file_exclude='\v\~$|\.(o|exe|dll|bak|orig|sw[po])$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 " Highlight end of line whitespace.
-" set list
 set listchars=trail:.
 
 " Syntastic syntax error checking options
@@ -67,18 +65,20 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_jsl_conf="~/.vim/config/jsl.conf"
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
-" Color Line numbers
-" highlight SignColumn ctermbg=grey ctermfg=black
-
 " Solarized color scheme
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
+" set background=dark
+" let g:solarized_termtrans=1
+" let g:solarized_termcolors=256
+" let g:solarized_contrast="high"
+" let g:solarized_visibility="high"
 
 " Set Theme
-colorscheme solarized
+" colorscheme solarized
+colorscheme brogrammer
+
+" color overrides for brogrammer theme
+hi Normal ctermbg=none
+hi NonText ctermbg=none
 
 call togglebg#map("<F6>")
 
@@ -143,36 +143,11 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesOdd  ctermbg=234
 hi IndentGuidesEven ctermbg=236
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
-
-" Status line of awesome
-" hi User1 ctermbg=237 ctermfg=248
-" hi User2 ctermbg=red   ctermfg=blue
-" hi User3 ctermbg=blue  ctermfg=green
-" set laststatus=2
-" set statusline=         " clear statusline for vim reload
-" set statusline+=%1*     " set color to User1
-" set statusline+=%f     " filename/path
-" "set statusline+=\ %#warningmsg#
-" "set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%1*     " set color to User1
-" set statusline+=%y    " filetype
-" set statusline+=\[%{FileSize()}]
-" set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-" set statusline+=%{&ff}] " file format
-" set statusline+=%h      " help file flag
-" set statusline+=%m      " modified flag
-" set statusline+=%r      " read only flag
-" set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " Git Branch (if fugitive loaded)
-" set statusline+=[Modified:%{strftime(\"\%c\",getftime(expand(\"\%\%\")))}]  " Last Modified
-" set statusline+=%=      " left/right seperator
-" set statusline+=[%c,    " cursor column
-" set statusline+=%l/%L   " cursor line/total lines
-" set statusline+=\ %P]   " percent through file"
 
 " Function to calculate File Size
 function! FileSize()
@@ -201,25 +176,11 @@ set laststatus=2
 " allow fancy arrow symbols for powerline patched fonts
 let g:airline_powerline_fonts = 1
 
-" vim-powerline symbols
-" let g:airline_left_sep          = '⮀'
-" let g:airline_left_alt_sep      = '⮁'
-" let g:airline_right_sep         = '⮂'
-" let g:airline_right_alt_sep     = '⮃'
-" let g:airline_branch_prefix     = '⭠'
-" let g:airline_readonly_symbol   = '⭤'
-" let g:airline_linecolumn_prefix = '⭡'
-
 " Show PASTE if in paste mode
 let g:airline_detect_paste=1
 
 " Enable vim-airline
 let g:airline#extensions#tabline#enabled = 1
-
-" function! AirlineInit()
-" 	let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-" endfunction
-" autocmd VimEnter * call AirlineInit()
 
 " Vim Snippets
 let g:snipMate = {}
