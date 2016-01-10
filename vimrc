@@ -66,19 +66,19 @@ let g:syntastic_jsl_conf="~/.vim/config/jsl.conf"
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
 " Solarized color scheme
-" set background=dark
-" let g:solarized_termtrans=1
-" let g:solarized_termcolors=256
-" let g:solarized_contrast="high"
-" let g:solarized_visibility="high"
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
 
 " Set Theme
-" colorscheme solarized
-colorscheme brogrammer
+colorscheme solarized
+" colorscheme brogrammer
 
 " color overrides for brogrammer theme
-hi Normal ctermbg=none
-hi NonText ctermbg=none
+" hi Normal ctermbg=none
+" hi NonText ctermbg=none
 
 call togglebg#map("<F6>")
 
