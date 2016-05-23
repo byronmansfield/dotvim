@@ -1,6 +1,4 @@
-" Load Pathogen and all bundles
-call pathogen#infect()
-call pathogen#helptags()
+execute pathogen#infect()
 
 " Basic goodness
 set nocompatible
@@ -86,25 +84,8 @@ let g:solarized_termcolors=256
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 
-" Works the best for right now
+" Color Theme Solarized
 colorscheme solarized
-
-" The following have issues that might be able to be fixed by customizing a few
-" things. Once adjusted maybe they will be better alternatives.
-" Revisit them later
-" colorscheme darkspectrum
-" colorscheme flattown
-" colorscheme monokai
-" colorscheme mango
-" colorscheme darkmate
-" colorscheme gruvbox
-" colorscheme classytouch
-" colorscheme pomelo
-" colorscheme hemisu
-
-" Works the best as a close second alternative if I have no success with
-" correcting the listed once above
-" colorscheme nucolors
 
 call togglebg#map("<F6>")
 
@@ -118,11 +99,11 @@ function! <SID>SynStack()
 endfunction
 
 " Format JSON
-function! FormatJSON() 
-  :%!python -m json.tool 
+function! FormatJSON()
+  :%!python -m json.tool
 endfunction
 
-" Key map for format function 
+" Key map for format function
 map <C-j> :call FormatJSON()<CR>
 
 " javascript libraries configuration for javascript syntax plugin
@@ -175,31 +156,6 @@ hi IndentGuidesEven ctermbg=236
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
-" Status line of awesome
-" hi User1 ctermbg=237 ctermfg=248
-" hi User2 ctermbg=red   ctermfg=blue
-" hi User3 ctermbg=blue  ctermfg=green
-" set laststatus=2
-" set statusline=         " clear statusline for vim reload
-" set statusline+=%1*     " set color to User1
-" set statusline+=%f     " filename/path
-" "set statusline+=\ %#warningmsg#
-" "set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%1*     " set color to User1
-" set statusline+=%y    " filetype
-" set statusline+=\[%{FileSize()}]
-" set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-" set statusline+=%{&ff}] " file format
-" set statusline+=%h      " help file flag
-" set statusline+=%m      " modified flag
-" set statusline+=%r      " read only flag
-" set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " Git Branch (if fugitive loaded)
-" set statusline+=[Modified:%{strftime(\"\%c\",getftime(expand(\"\%\%\")))}]  " Last Modified
-" set statusline+=%=      " left/right seperator
-" set statusline+=[%c,    " cursor column
-" set statusline+=%l/%L   " cursor line/total lines
-" set statusline+=\ %P]   " percent through file"
-
 " Function to calculate File Size
 function! FileSize()
   let bytes = getfsize(expand("%:p"))
@@ -227,20 +183,6 @@ set laststatus=2
 " allow fancy arrow symbols for powerline patched fonts
 let g:airline_powerline_fonts = 1
 
-" vim-powerline symbols
-" let g:airline_left_sep          = '⮀'
-" let g:airline_left_alt_sep      = '⮁'
-" let g:airline_right_sep         = '⮂'
-" let g:airline_right_alt_sep     = '⮃'
-" let g:airline_branch_prefix     = '⭠'
-" let g:airline_readonly_symbol   = '⭤'
-" let g:airline_linecolumn_prefix = '⭡'
-
-" function! AirlineInit()
-" 	let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-" endfunction
-" autocmd VimEnter * call AirlineInit()
-
 " Vim Snippets
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
@@ -264,7 +206,3 @@ let g:vim_json_syntax_conceal = 0
 " highlight whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-" autocmd BufWinLeave * call clearmatches()
