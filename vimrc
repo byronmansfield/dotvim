@@ -1,4 +1,6 @@
+" Load Pathogen and all bundles
 execute pathogen#infect()
+execute pathogen#helptags()
 
 " Basic goodness
 set nocompatible
@@ -75,7 +77,7 @@ let g:syntastic_jsl_conf="~/.vim/config/jsl.conf"
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
 " Color Line numbers
-" highlight SignColumn ctermbg=grey ctermfg=black
+highlight SignColumn ctermbg=grey ctermfg=black
 
 " Solarized color scheme
 set background=dark
@@ -173,7 +175,9 @@ endfunction
 " airline
 """"""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
+" let g:solarized_base16
 let g:airline_theme = 'solarized'
+" let g:solarized_base16 = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enable = 1
 let g:airline_detect_paste=1
