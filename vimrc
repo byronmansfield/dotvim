@@ -22,6 +22,9 @@ set spell spelllang=en_us
 set t_Co=256
 set term=xterm-256color
 
+" leader
+let mapleader=","
+
 " =================== Search ===========================
 set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
@@ -40,6 +43,13 @@ set wrapmargin=0    " helps with textwidth
 " set formatoptions-=t " prevent vim auto formating when typing on existing lines
 " set formatoptions+=1 " prevent vim auto formating most of the time but allow some long lines
 
+" Persistanb undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" remap arrow keys
 nmap <Left> <<
 nmap <Right> >>
 vmap <Left> <gv
@@ -141,12 +151,6 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
-" Persistanb undo
-set undodir=~/.vim/undodir
-set undofile
-set undolevels=1000
-set undoreload=10000
-
 " Custom indent-guides config
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level=2
@@ -170,6 +174,20 @@ function! FileSize()
     return (bytes / 1024) . "K"
   endif
 endfunction
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+" set paste mapping
+set pastetoggle=<leader>p
+
+" jump to definition
+nnoremap <leader>. :CtrlPTag<cr>
+
+" TagBar
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""
 " airline
@@ -203,6 +221,35 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+" Go Tags config
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 " disable JSON concel
 let g:vim_json_syntax_conceal = 0
