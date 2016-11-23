@@ -5,35 +5,63 @@ execute pathogen#helptags()
 """"""""""""""""""""""""""""""
 " Basic setup
 """"""""""""""""""""""""""""""
-set nocompatible
+filetype off
+set nocompatible                " be iMproved
+set modelines=0
+set encoding=utf-8
+set termencoding=utf-8
+scriptencoding utf-8
 syntax on
 filetype plugin indent on
 filetype plugin on
-set number
-set cursorline
-set autoindent smartindent
-set expandtab
-set backspace=2
+set showcmd                     " display incomplete commands
+set showmode                    " display the mode you're in
+set showmatch                   " show matching brackets/parenthesis
+set mat=5                       " duration to show matching tabs
+set autoread                    " reload files automagically
+set hidden                      " Handle multiple buffers better
+set title                       " Set the terminal's title
+set number                      " show line numbers
+set ruler                       " Show cursor position
+set cursorline                  " highlight line cursor is on
+set autoindent smartindent      " match indentation of previous line
+set expandtab                   " use spaces, not tabs
+set backspace=indent,eol,start  " backspace through everything in insert mode
+" set backspace=2
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set textwidth=79
-set colorcolumn=79
+set textwidth=80
+set colorcolumn=80              " where the text column line is
 set spell spelllang=en_us
-set t_Co=256
+set t_Co=256                    " Set terminal to 256 colors
 set term=xterm-256color
-let mapleader=","   " leader
+let mapleader=","               " leader
 " tell vim to allow you to copy between files, remember your cursor
 " position and other little nice things like that
 set viminfo='100,\"2500,:200,%,n~/.viminfo
-
+" small tweaks to make more shell line
+set wildmode=list:longest       " Complete files like a shell
+set wildmenu                    " Enhanced command line completion
+set wildignore=*.o,*.obj,*~     " Stuff to ignore when tab completing
+set magic                       " magic matching
+set ttyfast                     " indicate a fast terminal connection
+set tf                          " improve redrawing for newer computers
+set nolazyredraw                " turn off lazy redraw
+set shell=/bin/zsh              " set shell
 """"""""""""""""""""""""""""""
 " Search
 """"""""""""""""""""""""""""""
-set incsearch       " Find the next match as we type the search
-set hlsearch        " Highlight searches by default
-set ignorecase      " Ignore case when searching...
-set smartcase       " ...unless we type a capital
+set incsearch                   " Find the next match as we type the search
+set hlsearch                    " Highlight searches by default
+set ignorecase                  " Ignore case when searching...
+set smartcase                   " ...unless we type a capital
+set gdefault                    " Set the global flag on substitute commands by default
+set matchpairs+=<:>             " Match < and > as well.
+nnoremap <CR> :noh<CR><CR>
+nnoremap / /\v
+vnoremap / /\v
+"set showmatch                   " When a bracket is inserted, briefly jump to the matching one
 
 " hack for multiple pastes
 xnoremap p pgvy
@@ -43,17 +71,17 @@ xnoremap p pgvy
 """"""""""""""""""""""""""""""
 set wrap
 set linebreak
-set nolist          " list disables linebreaks
-set textwidth=0     " prevent vim from inserting new line breaks on new text
-set wrapmargin=0    " helps with textwidth
+set nolist                      " list disables linebreaks
+set textwidth=0                 " prevent vim from inserting new line breaks on new text
+set wrapmargin=0                " helps with textwidth
 " set formatoptions-=t " prevent vim auto formating when typing on existing lines
 " set formatoptions+=1 " prevent vim auto formating most of the time but allow some long lines
 
 " Persistanb undo
-set undodir=~/.vim/undodir
-set undofile
-set undolevels=1000
-set undoreload=10000
+set undodir=~/.vim/undodir      " where to save undo histories
+set undofile                    " Save undo's after file closes
+set undolevels=1000             " How many undos
+set undoreload=10000            " number of lines to save for undo
 
 """"""""""""""""""""""""""""""
 " Repurpose arrow keys
@@ -84,7 +112,11 @@ set foldlevel=1
 """"""""""""""""""""""""""""""
 " Whitespace settings
 """"""""""""""""""""""""""""""
-set listchars=trail:.
+" show invisible characters
+set list
+" som alternatives: tab:▸\,eol:¬
+set listchars=tab:\|\ ,trail:…
+"set listchars=trail:.
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 " we also want to get rid of accidental trailing whitespace on save
@@ -130,10 +162,10 @@ endfunction
 
 " Show highlighing groups for current word
 function! <SID>SynStack()
-	if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction
 
 """"""""""""""""""""""""""""""
@@ -145,7 +177,7 @@ map <C-j> :call FormatJSON()<CR>
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
-set pastetoggle=<leader>p 		" set paste mapping
+set pastetoggle=<leader>p       " set paste toogle mapping
 
 " CtrlP Jump to definition
 nnoremap <leader>. :CtrlPTag<cr>
@@ -155,6 +187,18 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 " Show highlighing groups for current word
 nmap <C-S-P> :call <SID>SynStack()<CR>
+
+" fix trailing spaces
+nnoremap <leader>w :%s/\s\+$//<cr>:let @/=''<CR>
+
+" clear search results
+nnoremap <leader><space> :noh<cr>
+
+" select last matched item
+nnoremap <leader>/ //e<Enter>v??<Enter>
+
+" see what unsaved changes you have
+nnoremap <leader>u :w !diff - %<CR>
 
 """"""""""""""""""""""""""""""
 " Plugin Settings
@@ -217,6 +261,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_jsl_conf="~/.vim/config/jsl.conf"
+let g:syntastic_html_checkers=[''] "disable html checker
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
 """"""""""""""""""""""""""""""
