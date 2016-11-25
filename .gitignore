@@ -32,4 +32,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-/bundle
+# ignore all vim plugins
+bundle/*
