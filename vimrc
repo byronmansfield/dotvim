@@ -195,6 +195,7 @@ map <C-j> :call FormatJSON()<CR>
 
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1        " show hidden files in nerdtree
 
 set pastetoggle=<leader>p       " set paste toogle mapping
 
