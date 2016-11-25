@@ -1,24 +1,72 @@
-[submodule ".vim/bundle/delmitmate"]
-	path = bundle/delmitmate
-	url = git://github.com/Raimondi/delimitMate.git
-[submodule ".vim/bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/solarized"]
-	path = bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/vim-indent-guides"]
-	path = bundle/vim-indent-guides
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+  url = git@github.com:Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = bundle/ctrlp.vim
+  url = git@github.com:kien/ctrlp.vim.git
+[submodule ".vim/bundle/editorconfig-vim"]
+	path = bundle/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule ".vim/bundle/javascript-libraries-syntax.vim"]
+	path = bundle/javascript-libraries-syntax.vim
+	url = git@github.com:othree/javascript-libraries-syntax.vim.git
 [submodule ".vim/bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule ".vim/bundle/rainbow_parentheses.vim"]
+	path = bundle/rainbow_parentheses.vim
+	url = git@github.com:kien/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/solarized"]
+	path = bundle/solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/supertab"]
+	path = bundle/supertab
+	url = git@github.com:ervandew/supertab.git
 [submodule ".vim/bundle/syntastic"]
 	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/rainbow_parentheses"]
-	path = bundle/rainbow_parentheses
-	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "bundle/editorconfig"]
-	path = bundle/editorconfig
-  url = git://github.com/editorconfig/editorconfig-vim.git
+	url = git@github.com:vim-syntastic/syntastic.git
+[submodule ".vim/bundle/tagbar"]
+	path = bundle/tagbar
+	url = git@github.com:majutsushi/tagbar.git
+[submodule ".vim/bundle/tcomment_vim"]
+	path = bundle/tcomment_vim
+	url = git@github.com:tomtom/tcomment_vim.git
+[submodule ".vim/bundle/tern_for_vim"]
+	path = bundle/tern_for_vim
+  url = git@github.com:ternjs/tern_for_vim.git
+[submodule ".vim/bundle/vim-airline"]
+	path = bundle/vim-airline
+  url = git@github.com:vim-airline/vim-airline.git
+[submodule ".vim/bundle/vim-airline-themes"]
+	path = bundle/vim-airline-themes
+  url = git@github.com:vim-airline/vim-airline-themes.git
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = bundle/vim-colors-solarized
+  url = git@github.com:altercation/vim-colors-solarized.git
+[submodule ".vim/bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+  url = git@github.com:tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-go"]
+	path = bundle/vim-go
+  url = git@github.com:fatih/vim-go.git
+[submodule ".vim/bundle/vim-hackernews"]
+	path = bundle/vim-hackernews
+  url = git@github.com:ryanss/vim-hackernews.git
+[submodule ".vim/bundle/vim-indent-guides"]
+	path = bundle/vim-indent-guides
+  url = git@github.com:nathanaelkane/vim-indent-guides.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = bundle/vim-javascript
+  url = git@github.com:pangloss/vim-javascript.git
+[submodule ".vim/bundle/vim-javascript-syntax"]
+	path = bundle/vim-javascript-syntax
+  url = git@github.com:jelera/vim-javascript-syntax.git
+[submodule ".vim/bundle/vim-json"]
+	path = bundle/vim-json
+  url = git@github.com:elzr/vim-json.git
+[submodule ".vim/bundle/vim-less"]
+	path = bundle/vim-less
+  url = git@github.com:groenewege/vim-less.git
+[submodule ".vim/bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
