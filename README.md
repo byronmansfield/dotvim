@@ -9,16 +9,13 @@ for myself on setting it up every time I need to set up a new computer, and save
 	(please send PR's). Right now I'd say that most of this is set up for OS X +
 	iTerm2 with Tmux. I've started using Ubuntu more and have slowly started
 	adding things that make it compatible with both.
-	
+
 ## Current Feature Highlights
 
 * [Pathogen](https://github.com/tpope/vim-pathogen) - for easily managing plugins as git submodules
 * [NerdTree](https://github.com/scrooloose/nerdtree) - nice tree-view file browsing [C-n]
-* [delimatate](https://github.com/Raimondi/delimitMate) - autocomplete closing support for quotes, brackets, etc
-* [Supertab](https://github.com/ervandew/supertab) - tab-complete anything you have used in the curent buffer
 * [Rainbow Parentheses](https://github.com/kien/rainbow_parentheses.vim) - easily see when and where you are missing a closing bracket
 * [Syntastic](https://github.com/scrooloose/syntastic) - syntax checking and correction helpers for most major languages
-* [Indent Guides](https://github.com/nathanaelkane/vim-indent-guides) - easily see indentions.
 * [Solarized](http://ethanschoonover.com/solarized) - Solarized Dark Theme
 * [Airline](https://github.com/bling/vim-airline) - Powerful Vim status bar light as air
 
@@ -54,7 +51,7 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 Until I get around to writing a bash script to do all this automagically for
 me. There will be a few extra things you will need to install in order for this
-full list of vim goodies to work. 
+full list of vim goodies to work.
 
 #### Install YouCompleteMe
 
@@ -109,7 +106,9 @@ git clone https://github.com/abertsch/Menlo-for-Powerline.git
 
 Use at your own risk. You may be eaten by a grue.
 
+Other things to note. Using on OSX in iTerm2 + tmux can yield all kinds of weird things you will have to troubleshoot, such as copy and paste issues, italic font support, color theme settings, and many more fun things. I will try to annotate this more as I come across it. Some of this support overlaps to my [dotfile repo](https://github.com/byronmansfield/dotfiles). You may want to check there for some of these issues, tmux in particular.
+
 ## Wishlist
 
-- [ ] write an installer script to handle some of the secondary installations 
+- [ ] write an installer script to handle some of the secondary installations
 
