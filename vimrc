@@ -33,13 +33,19 @@ set softtabstop=2
 set shiftwidth=2
 set textwidth=80
 set colorcolumn=80              " where the text column line is
-set spell spelllang=en_us
 set t_Co=256                    " Set terminal to 256 colors
 set term=xterm-256color
 let mapleader=","               " leader
 " tell vim to allow you to copy between files, remember your cursor
 " position and other little nice things like that
 set viminfo='100,\"2500,:200,%,n~/.viminfo
+" spell checking
+set spell                       " turn on spell checking
+set spelllang=en_us             " set language for spell checking
+set spellfile=$HOME/.vim/spell-en.utf-8.add
+autocmd ColorScheme * hi clear SpellBad
+    \| hi SpellBad cterm=underline,bold,italic ctermfg=9 ctermbg=8
+set complete+=kspell
 " small tweaks to make more shell line
 set wildmode=list:longest       " Complete files like a shell
 set wildmenu                    " Enhanced command line completion
@@ -65,6 +71,10 @@ vnoremap / /\v
 
 " hack for multiple pastes
 xnoremap p pgvy
+
+" fix for italics in vim
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 
 """"""""""""""""""""""""""""""
 " Wrap without line breaks
@@ -139,6 +149,9 @@ colorscheme solarized
 
 call togglebg#map("<F6>")
 
+" italisize comments
+highlight Comment cterm=italic
+
 """"""""""""""""""""""""""""""
 " Functions
 """"""""""""""""""""""""""""""
@@ -171,6 +184,12 @@ endfunction
 """"""""""""""""""""""""""""""
 " Custom Mappings
 """"""""""""""""""""""""""""""
+
+" Reload .vimrc
+map <leader>rv :source ~/.vim/vimrc<cr>
+map <leader>ev :tabe ~/.vim/vimrc<cr>
+autocmd bufwritepost vimrc source ~/.vim/vimrc
+
 " Key map for format function
 map <C-j> :call FormatJSON()<CR>
 
