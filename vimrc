@@ -124,7 +124,7 @@ set foldlevel=1
 """"""""""""""""""""""""""""""
 " show invisible characters
 set list
-" som alternatives: tab:▸\,eol:¬
+" some alternatives: tab:▸\,eol:¬
 set listchars=tab:\|\ ,trail:…
 "set listchars=trail:.
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -197,7 +197,7 @@ map <C-j> :call FormatJSON()<CR>
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1        " show hidden files in nerdtree
 
-set pastetoggle=<leader>p       " set paste toogle mapping
+set pastetoggle=<leader>p       " set paste toggle mapping
 
 " CtrlP Jump to definition
 nnoremap <leader>. :CtrlPTag<cr>
