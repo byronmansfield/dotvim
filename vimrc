@@ -3,7 +3,7 @@ execute pathogen#infect()
 execute pathogen#helptags()
 
 """"""""""""""""""""""""""""""
-" Basic setup
+" The basics
 """"""""""""""""""""""""""""""
 filetype off
 set nocompatible                " be iMproved
@@ -27,11 +27,9 @@ set cursorline                  " highlight line cursor is on
 set autoindent smartindent      " match indentation of previous line
 set expandtab                   " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
-" set backspace=2
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set textwidth=80
 set colorcolumn=80              " where the text column line is
 set t_Co=256                    " Set terminal to 256 colors
 set term=xterm-256color
@@ -72,7 +70,7 @@ set matchpairs+=<:>             " Match < and > as well.
 nnoremap <CR> :noh<CR><CR>
 nnoremap / /\v
 vnoremap / /\v
-"set showmatch                   " When a bracket is inserted, briefly jump to the matching one
+" set showmatch                 " When a bracket is inserted, briefly jump to the matching one
 
 " hack for multiple pastes
 xnoremap p pgvy
@@ -81,18 +79,17 @@ xnoremap p pgvy
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
-""""""""""""""""""""""""""""""
-" Wrap without line breaks
-""""""""""""""""""""""""""""""
-set columns=80
-set tw=80
+" Wrapping
 set wrap
+set nolist
 set linebreak
-set nolist                      " list disables linebreaks
-set textwidth=0                 " prevent vim from inserting new line breaks on new text
-set wrapmargin=0                " helps with textwidth
-" set formatoptions-=t          " prevent vim auto formating when typing on existing lines
-" set formatoptions+=1          " prevent vim auto formating most of the time but allow some long lines
+set textwidth=80              " Which column to start wrapping lines
+set wrapmargin=0              " How many columns from right to start wrapping
+set formatoptions=t           " Auto-wrap text using textwidth setting
+set formatoptions-=a          " Refuse auto-wrap formatting of paragraphs when new text is entered
+set formatoptions+=q          " Allow formatting of comments with 'gq'
+set formatoptions+=o          " Automatically insert the current comment leader after hitting 'o' or 'O' in Normal mode.
+set formatoptions-=l          " Do not allow long lines
 
 " Persistanb undo
 set undodir=~/.vim/undodir      " where to save undo histories
@@ -130,7 +127,7 @@ set foldlevel=1
 " Whitespace settings
 """"""""""""""""""""""""""""""
 " show invisible characters
-set list
+" set list
 " some alternatives: tab:▸\,eol:¬
 set listchars=tab:\|\ ,trail:…
 "set listchars=trail:.
@@ -167,7 +164,7 @@ function! FormatJSON()
   :%!python -m json.tool
 endfunction
 
-" Function to calculate File Size
+" Calculate File Size
 function! FileSize()
   let bytes = getfsize(expand("%:p"))
   if bytes <= 0
@@ -186,6 +183,18 @@ function! <SID>SynStack()
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunction
+
+" Unwrap the wrapped text
+function! UnWrap()
+  let ogtw=&textwidth
+  set textwidth=0
+  set formatoptions+=l
+  set formatoptions-=a
+  :execute "normal! vipJ"
+  set formatoptions+=a
+  set formatoptions-=l
+  let &textwidth=ogtw
 endfunction
 
 """"""""""""""""""""""""""""""
@@ -207,10 +216,10 @@ map <leader>rv :source ~/.vim/vimrc<cr>
 map <leader>ev :tabe ~/.vim/vimrc<cr>
 autocmd bufwritepost vimrc source ~/.vim/vimrc
 
-" Key map for format function
+" Key map to format JSON
 map <C-j> :call FormatJSON()<CR>
 
-" Nerdtree
+" NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1        " show hidden files in nerdtree
 
@@ -222,7 +231,7 @@ nnoremap <leader>. :CtrlPTag<cr>
 " TagBar Toggle
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
-" Show highlighing groups for current word
+" Show highlighting groups for current word
 nmap <C-S-P> :call <SID>SynStack()<CR>
 
 " fix trailing spaces
@@ -237,10 +246,16 @@ nnoremap <leader>/ //e<Enter>v??<Enter>
 " see what unsaved changes you have
 nnoremap <leader>u :w !diff - %<CR>
 
+" format current line under curser by wrapping
+nnoremap <leader>f vipgq
+
+" unwrap wrapped line(s) or paragraph under cursor
+nnoremap <leader>uf :call UnWrap()<CR>
+
 """"""""""""""""""""""""""""""
 " Plugin Settings
 """"""""""""""""""""""""""""""
-" disable JSON concel
+" disable JSON conceal
 let g:vim_json_syntax_conceal = 0
 
 " javascript libraries configuration for javascript syntax plugin
@@ -378,3 +393,4 @@ au BufNewFile,BufRead *.py
 
 " syntax highlighting
 let python_highlight_all=1
+
