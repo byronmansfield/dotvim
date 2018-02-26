@@ -182,6 +182,16 @@ function! <SID>SynStack()
 endfunction
 
 """"""""""""""""""""""""""""""
+" Ctags config
+""""""""""""""""""""""""""""""
+
+" tell ctags where the tags are
+set tags=./.git/tags;,tags;
+
+" mapping for generating tags
+map <F12> :!ctags -R -f ./.git/tags .<CR>
+
+""""""""""""""""""""""""""""""
 " Custom Mappings
 """"""""""""""""""""""""""""""
 
@@ -344,3 +354,20 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+""""""""""""""""""""""""""""""
+" Python settings
+""""""""""""""""""""""""""""""
+
+" Add proper PEP8 indentation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" syntax highlighting
+let python_highlight_all=1
