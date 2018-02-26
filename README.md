@@ -2,13 +2,7 @@
 
 ## About
 
-This is to help me keep all my computers synced and also to add some history
-tracking in case I need to revert. I am also using this as a way to leave notes
-for myself on setting it up every time I need to set up a new computer, and save myself time from googling around. Take what you like, contribute if you like
-	myself time from googling around. Take what you like, contribute if you like
-	(please send PR's). Right now I'd say that most of this is set up for OS X +
-	iTerm2 with Tmux. I've started using Ubuntu more and have slowly started
-	adding things that make it compatible with both.
+This is to help me keep all my computers synced and also to add some history tracking in case I need to revert. I am also using this as a way to leave notes for myself on setting it up every time I need to set up a new computer, and save myself time from googling around. Take what you like, contribute if you like (please send PR's). Right now I'd say that most of this is set up for OS X + iTerm2 with Tmux. I've started using Ubuntu more and have slowly started adding things that make it compatible with both.
 
 ## Current Feature Highlights
 

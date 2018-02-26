@@ -35,10 +35,13 @@ set textwidth=80
 set colorcolumn=80              " where the text column line is
 set t_Co=256                    " Set terminal to 256 colors
 set term=xterm-256color
+
 let mapleader=","               " leader
+
 " tell vim to allow you to copy between files, remember your cursor
 " position and other little nice things like that
 set viminfo='100,\"2500,:200,%,n~/.viminfo
+
 " spell checking
 set spell                       " turn on spell checking
 set spelllang=en_us             " set language for spell checking
@@ -46,7 +49,8 @@ set spellfile=$HOME/.vim/spell-en.utf-8.add
 autocmd ColorScheme * hi clear SpellBad
     \| hi SpellBad cterm=underline,bold,italic ctermfg=9 ctermbg=8
 set complete+=kspell
-" small tweaks to make more shell line
+
+" small tweaks to make more shell like
 set wildmode=list:longest       " Complete files like a shell
 set wildmenu                    " Enhanced command line completion
 set wildignore=*.o,*.obj,*~     " Stuff to ignore when tab completing
@@ -55,6 +59,7 @@ set ttyfast                     " indicate a fast terminal connection
 set tf                          " improve redrawing for newer computers
 set nolazyredraw                " turn off lazy redraw
 set shell=/bin/zsh              " set shell
+
 """"""""""""""""""""""""""""""
 " Search
 """"""""""""""""""""""""""""""
@@ -79,13 +84,15 @@ let &t_ZR="\e[23m"
 """"""""""""""""""""""""""""""
 " Wrap without line breaks
 """"""""""""""""""""""""""""""
+set columns=80
+set tw=80
 set wrap
 set linebreak
 set nolist                      " list disables linebreaks
 set textwidth=0                 " prevent vim from inserting new line breaks on new text
 set wrapmargin=0                " helps with textwidth
-" set formatoptions-=t " prevent vim auto formating when typing on existing lines
-" set formatoptions+=1 " prevent vim auto formating most of the time but allow some long lines
+" set formatoptions-=t          " prevent vim auto formating when typing on existing lines
+" set formatoptions+=1          " prevent vim auto formating most of the time but allow some long lines
 
 " Persistanb undo
 set undodir=~/.vim/undodir      " where to save undo histories
@@ -173,7 +180,7 @@ function! FileSize()
   endif
 endfunction
 
-" Show highlighing groups for current word
+" Show highlighting groups for current word
 function! <SID>SynStack()
   if !exists("*synstack")
     return
